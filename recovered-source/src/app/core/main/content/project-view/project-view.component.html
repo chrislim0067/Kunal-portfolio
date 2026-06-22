@@ -1,0 +1,29 @@
+<!-- <div class="images-wrap"> -->
+<!-- <div class="images">
+  <div class="image" *ngFor="let image of images">
+    <div class="image-content"></div>
+  </div>
+</div> -->
+<!-- </div> -->
+<div class="images-wrap">
+  <div class="container-fluid">
+    <!-- <div class="row">
+      <div class="col text-center">
+        <h1 class="apptitle t mt-5">Illustration</h1>
+      </div>
+    </div> -->
+    <div class="xmark abs mt-2 mt-md-0 d-none d-md-inline" (click)="close()"></div>
+    <!-- ml-0 ml-md-auto mr-md-auto mr-5 text-left text-md-center mb-2 mt-3 mb-md-5 mt-md-5 -->
+    <div class="row">
+      <div class="col-12 mb-2 mt-3 mb-md-5 mt-md-5 text-left text-md-center">
+        <div class="d-flex align-items-center justify-content-center">
+          <p class="mb-0">{{ category?.description }}</p>
+          <div class="d-inline d-md-none spacer flex-grow-1"></div>
+          <div class="d-inline d-md-none xmark ml-3" (click)="close()"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-grid-gallery (openProject)="openProject($event)" class="gallery" [projects]="projects" *ngIf="this.projects"> </app-grid-gallery>
+</div>
+<!-- <div class="vignette"></div> -->

@@ -1,0 +1,78 @@
+<div class="prog">
+  <!-- <p>{{ dur * progress }}</p> -->
+  <!-- <p>{{ this.dif }}</p> -->
+  <!-- <p>{{ this.ts.pixelRatio }}</p>  -->
+  <!-- <p>{{ this.ts.darkChange | async }}</p> -->
+
+  <!-- <p>{{ progress }}</p> -->
+  <!-- <!--  <p>{{ tdur }}</p> -->
+  <!-- <p>{{ dur }}</p> -->
+  <!-- <p>{{ ts.anim ? ts.anim.states.length : null }}</p> -->
+</div>
+<div class="mobilecontrols" *ngIf="this.site.isMobile" [ngClass]="{ dark: this.ts.dark > 0.5, show: !(this.ts.isFreeFlight | async) && (this.ts.siteEntered | async) }">
+  <button [ngClass]="{ show: currentIndex > 0 && !(this.ts.isFreeFlight | async) && (this.ts.siteEntered | async) }" mat-icon-button color="primary" (click)="prevClicked()" aria-label="Previous section">
+    <mat-icon>chevron_left</mat-icon>
+  </button>
+  <div class="flex-grow-1"></div>
+  <button [ngClass]="{ show: currentIndex < snapPositions.length - 1 && !(this.ts.isFreeFlight | async) && (this.ts.siteEntered | async) }" mat-icon-button color="primary" (click)="nextClicked()" aria-label="Next section">
+    <mat-icon>chevron_right</mat-icon>
+  </button>
+</div>
+
+<app-scroll-indicator [ngClass]="{ show: showScrollIndicator && !(this.ts.isFreeFlight | async) && (this.ts.siteEntered | async) && !atBottom, mobile: this.site.isMobile }"></app-scroll-indicator>
+<!-- (swipe)="swipe()" (swiperight)="swipeRight()" (swipeleft)="swipeLeft()" -->
+<div class="content-wrapper" [ngClass]="{ 'free-flight': (this.ts.isFreeFlight | async), 'site-not-entered': !(this.ts.siteEntered | async) }" #wrapperRef>
+  <!-- (wheel)="wheelEvt($event)" (touchend)="touchEnd($event)" (touchstart)="touchStart($event)" (touchmove)="touchMove($event)" -->
+  <!-- <app-navdots></app-navdots> -->
+
+  <app-three class="scene"></app-three>
+
+  <!-- <div class="credits">Tech Demo and Portfolio of Kunal Vaghela</div> -->
+  <section class="section1">
+    <div class="container center-container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h1 class="apptitle t logofont">Kunal Vaghela</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 text-center">
+          <h2 class="t">Illustration and Development</h2>
+          <div class="btnwrap">
+            <app-qa (resultEvent)="qaResult($event)"></app-qa>
+            <!-- <button class="custom-button dark mt-4" [ngClass]="{ hide: ts.isSoundOn | async }" mat-stroked-button (click)="toggleSound()">
+              Enable sound <mat-icon>volume_up</mat-icon>
+            </button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section2">
+    <app-progress></app-progress>
+    <app-section2 #section2Ref></app-section2>
+  </section>
+  <app-progress class="section3prog" [direction]="-1" [flip]="true"></app-progress>
+  <section class="section3">
+    <app-section3></app-section3>
+  </section>
+  <section class="section4">
+    <app-section4></app-section4>
+  </section>
+
+  <!-- <section class="section4_5">
+    <div class="container center-container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h2 class="t">Thanks for taking an interest in my work!</h2>
+        </div>
+      </div>
+    </div>
+  </section> -->
+  <section class="section5">
+    <app-section5 #section5Ref></app-section5>
+  </section>
+
+  <!-- <section class="section6"></section> -->
+</div>

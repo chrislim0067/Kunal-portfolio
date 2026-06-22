@@ -1,0 +1,5 @@
+<label class="container" *ngFor="let item of options; let i = index">
+  <input type="radio" name="radio" (change)="radioChange(i)" />
+  <span class="checkdot"></span>
+  {{ item.label }}
+</label>

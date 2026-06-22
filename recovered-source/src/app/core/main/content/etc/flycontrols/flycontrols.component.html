@@ -1,0 +1,21 @@
+<p class="cd" [ngClass]="{ show: (this.ts.isFreeFlight | async) && !(this.ns.firstInteraction | async) && delayed }">Click & Drag</p>
+<!-- -->
+<div class="panel" [ngClass]="{ open: panelOpen, dark: (this.ts.darkChange | async) > 0.5 }">
+  <button class="settingsbutton" (click)="this.panelToggle()" mat-icon-button aria-label="Settings button">
+    <mat-icon *ngIf="!panelOpen">settings</mat-icon>
+    <mat-icon *ngIf="panelOpen">expand_more</mat-icon>
+  </button>
+
+  <label class="container">
+    <!--  -->
+    <input type="checkbox" [(checked)]="this.ts.autofly" (change)="autoFlyChange($event)" />
+    <span class="checkmark"></span>
+    Autofly
+  </label>
+  <hr class="w-100" />
+  <app-moodselector (moodChange)="moodChange($event)"></app-moodselector>
+</div>
+
+<!-- <div class="dirind">
+  <div class="arrow" [ngStyle]="{ transform: this.transform }"></div>
+</div> -->

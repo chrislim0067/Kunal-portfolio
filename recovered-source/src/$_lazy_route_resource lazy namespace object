@@ -1,0 +1,21 @@
+var map = {
+	"./core/core.module": "pKmL"
+};
+
+function webpackAsyncContext(req) {
+	return Promise.resolve().then(function() {
+		if(!__webpack_require__.o(map, req)) {
+			var e = new Error("Cannot find module '" + req + "'");
+			e.code = 'MODULE_NOT_FOUND';
+			throw e;
+		}
+
+		var id = map[req];
+		return __webpack_require__(id);
+	});
+}
+webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+	return Object.keys(map);
+};
+webpackAsyncContext.id = "crnd";
+module.exports = webpackAsyncContext;

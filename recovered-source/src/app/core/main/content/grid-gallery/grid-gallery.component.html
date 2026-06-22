@@ -1,0 +1,12 @@
+<mat-grid-list [cols]="cols" [rowHeight]="rowHeight" [gutterSize]="gutterSize + 'px'" #gridlistRef>
+  <mat-grid-tile *ngFor="let project of projects" [rowspan]="item.rows" #tile>
+    <div class="icons">
+      <mat-icon class="mr-3" *ngIf="project.images.length > 1">filter</mat-icon>
+      <mat-icon class="mr-3" *ngIf="project.hasGif">gif</mat-icon>
+    </div>
+    <app-grid-gallery-item #item [project]="project" [rowHeight]="rowHeight" [gutterSize]="gutterSize" (click)="clicked(project)"> </app-grid-gallery-item>
+  </mat-grid-tile>
+</mat-grid-list>
+<!-- <div class="thumb" *ngFor="let project of images">
+  <app-grid-gallery-item #item [project]="project" [rowHeight]="rowHeight" [gutterSize]="gutterSize"> </app-grid-gallery-item>
+</div> -->

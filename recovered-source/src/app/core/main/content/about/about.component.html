@@ -1,0 +1,53 @@
+<div class="profile-modal">
+  <button type="button" class="close-btn" aria-label="Close profile" (click)="close()">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+      <path d="M4 4L14 14M14 4L4 14" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+    </svg>
+  </button>
+
+  <div class="profile-grid">
+    <aside class="col-photo anim-in" style="--delay: 0ms">
+      <div class="photo-frame">
+        <div class="sideimg"></div>
+        <div class="photo-gradient"></div>
+      </div>
+      <div class="availability">
+        <span class="status-dot"></span>
+        <span>Open to senior roles</span>
+      </div>
+      <div class="experience-pill">
+        <span class="experience-value">10+</span>
+        <span class="experience-label">years building at scale</span>
+      </div>
+    </aside>
+
+    <section class="col-summary anim-in" style="--delay: 80ms">
+      <header class="identity">
+        <div class="identity-top">
+          <span class="role-badge">Lead Software Engineer</span>
+        </div>
+        <h1 class="name">Kunal Vaghela</h1>
+        <p class="subtitle">Technical Leader · AI Engineer · Full-Stack Architect</p>
+      </header>
+
+      <div class="metrics">
+        <div class="metric-card" *ngFor="let metric of metrics">
+          <span class="metric-value">{{ metric.value }}</span>
+          <span class="metric-label">{{ metric.label }}</span>
+        </div>
+      </div>
+
+      <div class="highlights">
+        <span class="highlight-chip" *ngFor="let item of highlights">{{ item }}</span>
+      </div>
+
+      <p class="bio">
+        Technical leader and Senior Full-Stack software engineer with deep expertise building enterprise-grade systems
+        across finance, carbon credit, telecommunications, and eCommerce. Skilled in end-to-end architecture — from
+        React, Angular, and Next.js frontends to Python, Node.js, and Go backends, plus AWS cloud infrastructure and
+        modern AI/LLM platforms. Known for high-availability delivery, team coaching, and scalable system design that
+        drives measurable business value.
+      </p>
+    </section>
+  </div>
+</div>

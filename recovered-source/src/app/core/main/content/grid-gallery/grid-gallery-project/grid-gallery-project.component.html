@@ -1,0 +1,14 @@
+<div class="header">
+  <div class="title">
+    <h2>{{ data.title }}</h2>
+  </div>
+  <div class="xmark" (click)="close()"></div>
+</div>
+<p>{{ data.description }}</p>
+<div class="images" #imagesRef [ngStyle]="{ 'background-color': data.bgColor }">
+  <ng-container *ngFor="let image of data.images; let i = index">
+    <img class="mb-5" *ngIf="!image.gifSrc" [src]="image.src" [alt]="image.alt" [srcset]="image.srcset" [sizes]="image.sizes" alt="" [ngStyle]="{ height: heights[i] + 'px' }" />
+    <img class="mb-5" *ngIf="image.gifSrc" [src]="image.gifSrc" [ngStyle]="{ height: heights[i] + 'px' }" />
+  </ng-container>
+</div>
+<!-- [ngStyle]="{ width: image.data.width + 'px', height: this.calculateHeight(image.data) + 'px' }" -->

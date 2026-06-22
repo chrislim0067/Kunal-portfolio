@@ -1,0 +1,29 @@
+<div class="mb-4 mt-4">
+  <div class="vid" (click)="playClicked()" [ngStyle]="{ 'pointer-events': showPlay ? 'all' : 'none' }">
+    <div class="playbtn" *ngIf="showPlay">
+      <button mat-fab aria-label="Example icon button with a delete icon">
+        <mat-icon>play_circle</mat-icon>
+      </button>
+    </div>
+    <video width="250" height="250" poster="assets/prev.jpg" autoplay="autoplay" loop="loop" muted #videoRef>
+      <source src="assets/prev.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+<h3 class="mb-2">Your browser seems to run slow</h3>
+<p class="mb-4">This is an experimental website using WebGL and requires hardware acceleration.</p>
+
+<div class="div">
+  <h4>If you are using a laptop with dual graphics</h4>
+  <p class="">Allow chrome to use the dedicated graphics card.</p>
+</div>
+
+<div class="div mb-4">
+  <h4>If hardware acceleration is disabled in your browser</h4>
+  <p class="">Browser settings > Use hardware acceleration when available</p>
+</div>
+
+<p>If you are still experiencing problems, your device might not meet the minimum requirements</p>
+
+<button mat-stroked-button class="custom-button dark ml-auto mt-3 d-inline-block" (click)="continue()">Continue anyways</button>

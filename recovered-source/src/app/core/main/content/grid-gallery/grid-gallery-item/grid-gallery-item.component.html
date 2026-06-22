@@ -1,0 +1,3 @@
+<div class="info" [ngStyle]="{ height: height + 'px' }"></div>
+<img #img [src]="project.prevImage ? project.prevImage.src : project?.images[0]?.src" [srcset]="project.prevImage ? project.prevImage.srcset : project?.images[0]?.srcset" [sizes]="project.prevImage ? project.prevImage.sizes : project?.images[0]?.sizes" (load)="onLoad()" [ngClass]="{ loaded: loaded }" />
+<app-preloader *ngIf="!loaded"></app-preloader>

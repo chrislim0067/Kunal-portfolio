@@ -1,0 +1,22 @@
+<div class="wrapper" #wrapperRef>
+  <!-- <div class="info">
+    position: [{{ ts.areas.mainArea.currentArea.x }},{{ ts.areas.mainArea.currentArea.z }}]
+    <br />
+    <div>position: [{{ ts.camera.position.x }},{{ ts.camera.position.z }}]</div>
+    <br />
+    <div *ngIf="ts.builder">
+      <select>
+        <option value="item.id" *ngFor="let item of ts.builder.positionalSpawnables">
+          {{ item.id }}
+        </option>
+      </select>
+    </div>
+  </div> -->
+  <!-- <canvas class="noiseCanvas" #noiseCanvasRef></canvas> -->
+
+  <app-nipple *ngIf="this.ts.isFreeFlight | async" [zoneElement]="wrapperRef" class="nipple"></app-nipple>
+
+  <canvas class="mainCanvas" #canvasRef></canvas>
+</div>
+<!-- <div class="gui" #gui></div> -->
+<!-- {{checkChange()}} -->

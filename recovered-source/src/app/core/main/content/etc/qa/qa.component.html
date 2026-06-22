@@ -1,0 +1,10 @@
+<div class="qa" *ngIf="this.currentQ" [ngClass]="{ transitioning: isTransitioning }">
+  <div class="content" #contentRef>
+    <p *ngIf="this.currentQ.q">{{ this.currentQ.q }}</p>
+    <div class="options mt-4">
+      <button class="custom-button dark" [ngClass]="option.c" *ngFor="let option of this.currentQ.options" mat-stroked-button (click)="clicked(option)">
+        {{ option.a }}
+      </button>
+    </div>
+  </div>
+</div>

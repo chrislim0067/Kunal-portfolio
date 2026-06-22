@@ -1,0 +1,15 @@
+{
+  "name": "logartis-reconstruction",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local mirror of https://logartis.info/ — Angular portfolio production build",
+  "scripts": {
+    "start": "node scripts/serve.js",
+    "serve": "node scripts/serve.js",
+    "extract-sources": "node scripts/extract-sources.js",
+    "download-assets": "node scripts/download-assets.js",
+    "remove-about-photo": "node scripts/remove-about-photo.js",
+    "restore-about-photo": "node scripts/restore-about-photo.js",
+    "disable-service-worker": "node scripts/disable-service-worker.js"
+  }
+}

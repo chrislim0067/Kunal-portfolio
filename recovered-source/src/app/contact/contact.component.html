@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+  <div class="col-12">
+    <div class="p-0 p-sm-3 p-md-5 d-flex flex-column" [ngClass]="{ hide: this.messageSent }">
+      <div class="contact-header mb-4">
+        <h4 class="mb-2">Get in touch</h4>
+        <a class="contact-email" href="mailto:kunalvaghelaca@gmail.com">kunalvaghelaca@gmail.com</a>
+      </div>
+
+      <form [formGroup]="form" id="contactForm" (ngSubmit)="onSubmit(formDirective)" class="example-container secondary-text d-flex flex-column" [ngClass]="{ hide: this.messageSent }" #formDirective="ngForm">
+        <mat-form-field>
+          <input formControlName="name" matInput placeholder="Your name" />
+          <mat-error *ngIf="this.form.get('name').hasError('required')"> Name is <strong>required</strong> </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="email" matInput placeholder="Your email" />
+          <mat-error *ngIf="this.form.get('email').hasError('email') || !this.form.get('email').hasError('required')"> Please enter a valid email address </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <textarea formControlName="message" matInput placeholder="Your message" matTextareaAutosize></textarea>
+          <mat-error *ngIf="this.form.get('message').hasError('required')"> Message is <strong>required</strong> </mat-error>
+        </mat-form-field>
+        <re-captcha [ngClass]="{ hide: !otherFieldsValid() }" class="align-self-center justify-content-center mb-3 w-auto" formControlName="recaptcha" siteKey="6LdSmbQUAAAAAMnONhdbz8RqzBlQRiDmgMNkSydI"> </re-captcha>
+      </form>
+      <button type="submit" form="contactForm" [disabled]="form.invalid || this.isSending" mat-stroked-button class="align-self-center justify-content-center custom-button dark action-button" [ngClass]="{ hide: this.messageSent }">
+        <span *ngIf="!this.isSending">Send</span>
+        <div *ngIf="this.isSending">
+          Sending
+          <div class="progresswrapper ml-3">
+            <mat-progress-spinner [diameter]="14" [color]="'primary'" [mode]="'indeterminate'"> </mat-progress-spinner>
+          </div>
+        </div>
+      </button>
+    </div>
+
+    <div class="message-sent text-center" [ngClass]="{ show: this.messageSent }">
+      <h4>Thank you for getting in touch with me!</h4>
+      I will get back to you quickly.
+      <button type="button" class="btn btn-dark mt-3" (click)="okClicked()">Close</button>
+    </div>
+  </div>
+</div>

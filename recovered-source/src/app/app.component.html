@@ -1,0 +1,61 @@
+<router-outlet></router-outlet>
+
+<app-loader></app-loader>
+
+<!-- <audio #audioRef *ngIf="this.site.onInited | async" autoplay loop>
+  <source src="assets/sounds/bg.mp3" type="audio/mp3" />
+</audio> -->
+<div class="mobile-nav d-flex d-lg-none" [ngClass]="{ open: menuOpen }">
+  <button class="custom-button dark" (click)="openAbout()" mat-button aria-label="About button">About</button>
+  <button class="custom-button dark" (click)="openIllustration()" mat-button aria-label="Illustration works button">Illustration</button>
+  <button class="custom-button dark" (click)="openDev()" mat-button aria-label="Development works button">Design & Dev</button>
+  <button class="custom-button dark" (click)="openContact()" mat-button aria-label="Contact button">Contact</button>
+  <div class="xmark dark" (click)="closeMenu()"></div>
+</div>
+
+<div class="toolbar" [ngClass]="{ dark: this.ts.dark > 0.5 }">
+  <!-- <button *ngIf="this.ts.isFreeFlight | async" (click)="freeFlightOff()" mat-icon-button aria-label="Contact button">
+    <mat-icon>chevron_left</mat-icon>
+  </button> -->
+  <!-- <button mat-icon-button aria-label="Contact button">
+    <mat-icon>chevron_left</mat-icon>
+  </button> -->
+  <button *ngIf="(this.ts.isFreeFlight | async) && !this.returnClicked" (click)="freeFlightOff()" class="custom-button dark icon" mat-button aria-label="Return button">
+    <mat-icon>chevron_left</mat-icon>
+    Exit <span class="d-none d-sm-inline">&nbsp;freeflight</span>
+  </button>
+  <button *ngIf="!(this.ts.isFreeFlight | async) && this.freeflightSkip && this.ts.inited" (click)="freeFlightOn()" class="custom-button dark icon" mat-button aria-label="Skip to Freeflight button">
+    <mat-icon class="mr-2 ml-2">airplane_ticket</mat-icon>
+    <span class="d-none d-sm-inline">Skip to freeflight</span>
+    <span class="d-inline d-sm-none">Freeflight</span>
+  </button>
+  <div class="spacer flex-grow-1"></div>
+  <div class="d-none d-lg-inline">
+    <button class="custom-button dark" (click)="openAbout()" mat-button aria-label="About button">About</button>
+    <button class="custom-button dark" (click)="openIllustration()" mat-button aria-label="Illustration works button">Illustration</button>
+    <button class="custom-button dark" (click)="openDev()" mat-button aria-label="Development works button">Design & Dev</button>
+    <button class="custom-button dark" (click)="openContact()" mat-button aria-label="Contact button">Contact</button>
+  </div>
+
+  <button class="d-inline d-lg-none" (click)="openMenu()" mat-icon-button aria-label="Menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <!-- <button (click)="openContact()" mat-icon-button aria-label="Contact">
+    <mat-icon>email</mat-icon>
+  </button> -->
+  <button [ngClass]="{ disable: !(this.ts.siteEntered | async) && !(this.ts.isFreeFlight | async), withscroll: (this.ts.siteEntered | async) && (this.ts.isFreeFlight | async) }" (mouseenter)="toggleSoundOverlay()" (click)="toggleSoundOverlay(); $event.stopPropagation()" mat-icon-button aria-label="Volume">
+    <mat-icon *ngIf="ts.isSoundOn | async">volume_up</mat-icon>
+    <mat-icon *ngIf="!(ts.isSoundOn | async)">volume_off</mat-icon>
+  </button>
+
+  <div class="soundoverlay" *ngIf="soundOverlayVisible" (click)="$event.stopPropagation()" (mouseleave)="soundOverlayVisible = !soundOverlayVisible">
+    <button (click)="toggleSound()" mat-icon-button aria-label="Volume" matTooltip="Toggle all sounds" [matTooltipPosition]="'left'">
+      <mat-icon *ngIf="ts.isSoundOn | async">volume_up</mat-icon>
+      <mat-icon *ngIf="!(ts.isSoundOn | async)">volume_off</mat-icon>
+    </button>
+    <button (click)="toggleMusic()" mat-icon-button aria-label="Volume" matTooltip="Toggle music only" [matTooltipPosition]="'left'">
+      <mat-icon *ngIf="ts.isMusicOn | async">music_note</mat-icon>
+      <mat-icon *ngIf="!(ts.isMusicOn | async)">music_off</mat-icon>
+    </button>
+  </div>
+</div>

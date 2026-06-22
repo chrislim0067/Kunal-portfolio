@@ -1,0 +1,33 @@
+/* Global app styles. Component-level SCSS was not recovered from the
+ * production build, so per-component styling is intentionally empty.
+ * Global rules are provided via styles.global.css (the deployed stylesheet). */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #000;
+}
+
+.about-backdrop {
+  background: rgba(0, 0, 0, 0.52) !important;
+  backdrop-filter: blur(10px);
+}
+
+.about-modal .mat-dialog-container {
+  max-height: min(92vh, 680px);
+  height: min(90vh, 680px);
+  max-width: min(96vw, 920px);
+  width: min(96vw, 920px);
+  padding: 0;
+  overflow: hidden;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 22px;
+}
+
+.about-modal .mat-dialog-container app-about {
+  display: block;
+  height: 100%;
+}

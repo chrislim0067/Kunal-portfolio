@@ -1,0 +1,46 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": false,
+    "strict": false,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    "strictPropertyInitialization": false,
+    "noImplicitReturns": false,
+    "noFallthroughCasesInSwitch": false,
+    "noImplicitOverride": false,
+    "noPropertyAccessFromIndexSignature": false,
+    "noImplicitThis": false,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "target": "es2017",
+    "module": "es2020",
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "src/*": [
+        "src/*"
+      ]
+    }
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": false,
+    "strictInputAccessModifiers": false,
+    "strictTemplates": false,
+    "fullTemplateTypeCheck": false
+  }
+}
